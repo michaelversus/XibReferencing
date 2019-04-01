@@ -19,7 +19,9 @@ extension UIView {
         guard let elements = Bundle.main.loadNibNamed(viewType, owner: nil, options: nil) else {
             fatalError("Failed to load nib with class name: \(viewType)")
         }
-        guard let filteredViews = (elements as? [UIView])?.objectsOfType(type: self) else { fatalError("Failed to find objects of type: \(viewType)") }
+        guard let filteredViews = (elements as? [UIView])?.objectsOfType(type: self) else { 
+            fatalError("Failed to find objects of type: \(viewType)") 
+        }
         guard let nibView = filteredViews.first else { fatalError("Failed to find nibView") }
         return nibView
     }
